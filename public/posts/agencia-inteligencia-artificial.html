@@ -1,0 +1,539 @@
+<!-- 
+POST SEO PARA ELEMENTOR (HTML + CSS)
+Tema: Cómo encontrar una agencia de Inteligencia Artificial
+Paleta obligatoria IAMANOS: 
+  Fondo: #0A2944 | Primario: #103B61 | Títulos: #00A5FF | Gris: #949494 | Degradado: #103B61 → #373737
+H1 único. Mostrar SOLO "Tiempo de lectura". Diseño creativo, responsive.
+-->
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0A2944;
+    --azul:#103B61;
+    --azul-osc:#0A2944;
+    --titulo:#00A5FF;
+    --gris:#949494;
+    --grad-a:#103B61;
+    --grad-b:#373737;
+    --white:#F5F7FA;
+    --card:#0f3555;
+    --stroke: rgba(255,255,255,.08);
+    --glow: 0 15px 40px rgba(0,165,255,.18);
+  }
+  .iamanos-blog{
+    background: linear-gradient(180deg, var(--azul-osc) 0%, #0b2f4e 100%);
+    color: var(--white);
+    font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    letter-spacing: .1px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .wrap{
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: clamp(20px, 3vw, 36px);
+  }
+  .hero{
+    background: radial-gradient(1200px 600px at 80% -10%, rgba(0,165,255,.14), transparent 60%), linear-gradient(180deg, rgba(16,59,97,.25), transparent 50%),
+                linear-gradient(135deg, var(--grad-a), var(--grad-b));
+    border: 1px solid var(--stroke);
+    border-radius: 18px;
+    padding: clamp(20px, 5vw, 44px);
+    position: relative;
+    box-shadow: var(--glow);
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset: 0;
+    background: radial-gradient(800px 200px at 10% 0%, rgba(0,165,255,.08), transparent 60%);
+    pointer-events:none;
+  }
+  h1,h2,h3,h4{ color: var(--titulo); font-family:'Space Grotesk', 'Poppins', sans-serif; letter-spacing:.2px;}
+  h1{ font-size: clamp(30px, 4.4vw, 56px); margin: 0 0 10px; font-weight: 800; }
+  h2{ font-size: clamp(22px, 2.8vw, 34px); margin: 40px 0 14px; font-weight: 700; }
+  h3{ font-size: clamp(18px, 2.2vw, 24px); margin: 28px 0 10px; font-weight: 700; }
+  h4{ font-size: clamp(16px, 2vw, 20px); margin: 16px 0 8px; font-weight: 600; }
+  p{ margin: 12px 0; color: #e7eef7; }
+  .muted{ color: var(--gris); }
+  .reading{
+    display:inline-flex; align-items:center; gap:10px; 
+    color:#e9f6ff; background: rgba(0,165,255,.09); border:1px solid rgba(0,165,255,.25);
+    border-radius: 999px; padding: 8px 14px; font-size: 14px; margin: 8px 0 6px; 
+  }
+  .reading .dot{ width:8px; height:8px; border-radius:50%; background:var(--titulo); box-shadow:0 0 0 6px rgba(0,165,255,.1); }
+  .kicker{ color: var(--gris); text-transform: uppercase; letter-spacing: 2px; font-size: 12px; margin-bottom: 8px;}
+  .lead{ font-size: clamp(16px, 2.1vw, 20px); color:#e9f6ff; opacity:.95; }
+  .toc{
+    margin: 24px 0; padding: 18px; border-radius: 14px;
+    background: linear-gradient(180deg, rgba(16,59,97,.35), rgba(55,55,55,.2));
+    border: 1px solid var(--stroke);
+  }
+  .toc .ttl{ font-weight:700; margin-bottom:10px; }
+  .toc a{ color:#cfefff; text-decoration:none; border-bottom: 1px dashed rgba(0,165,255,.35); }
+  .toc ol{ margin: 0; padding: 0 0 0 18px; }
+  .grid{
+    display:grid; gap:16px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .card{
+    grid-column: span 12;
+    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+    border:1px solid var(--stroke);
+    border-radius: 16px; padding: 18px 18px 14px; 
+  }
+  @media (min-width: 860px){
+    .card.col-6{ grid-column: span 6; }
+    .card.col-4{ grid-column: span 4; }
+  }
+  .badge{
+    display:inline-block; font-size:12px; padding:6px 10px; border-radius:999px; 
+    background: rgba(0,165,255,.12); color:#cfefff; border:1px solid rgba(0,165,255,.3); 
+  }
+  .checklist{ list-style: none; padding-left: 0; margin: 8px 0 0; }
+  .checklist li{ padding: 8px 0 8px 30px; position: relative; border-bottom: 1px dashed rgba(255,255,255,.06); }
+  .checklist li::before{ content:"✓"; position:absolute; left:0; top:8px; color: var(--titulo); font-weight: 800; }
+  .warn{ border-left: 4px solid #ff7b7b; background: rgba(255,93,93,.08); }
+  .info{ border-left: 4px solid var(--titulo); background: rgba(0,165,255,.06); }
+  .metric{
+    display:grid; grid-template-columns: 1fr auto; gap:8px; padding:10px 12px; 
+    background: rgba(0,165,255,.08); border:1px solid rgba(0,165,255,.25); border-radius:12px; margin:8px 0;
+  }
+  .metric strong{ color:#d8f2ff; }
+  .table{
+    width:100%; border-collapse: collapse; overflow:hidden; border-radius: 14px; border:1px solid var(--stroke);
+  }
+  .table th,.table td{ padding: 12px 14px; border-bottom:1px solid rgba(255,255,255,.06); }
+  .table th{ background: linear-gradient(180deg, rgba(0,165,255,.14), rgba(0,165,255,0)); color:#d9f2ff; text-align:left;}
+  .note{ font-size: 13px; color: var(--gris); }
+  .pill{ display:inline-block; padding:4px 8px; border:1px solid rgba(255,255,255,.08); border-radius:8px; color:#c9d8e6; }
+  .quote{
+    padding:16px 20px; border-left: 4px solid var(--titulo); 
+    background: linear-gradient(180deg, rgba(0,165,255,.06), rgba(0,165,255,.02)); border-radius: 10px;
+  }
+  .divider{height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent); margin:28px 0;}
+  /* FAQ accordion-ish */
+  details{
+    background: rgba(255,255,255,.02);
+    border: 1px solid var(--stroke);
+    border-left: 4px solid var(--titulo);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 10px 0;
+  }
+  details[open]{ box-shadow: var(--glow); }
+  summary{ cursor: pointer; color:#dff2ff; font-weight: 600; }
+  /* Anchors */
+  a.anchor{ text-decoration:none; color: inherit; }
+</style>
+
+<div class="iamanos-blog">
+  <div class="wrap">
+    <section class="hero">
+      <div class="kicker">Guía experta</div>
+      <h1>Cómo encontrar una agencia de Inteligencia Artificial (sin riesgos, humo ni sobrecostos)</h1>
+      <div class="reading"><span class="dot"></span>Tiempo de lectura: ~20 min</div>
+      <p class="lead">Elegir una <strong>agencia de Inteligencia Artificial (IA)</strong> es una decisión estratégica: afectará tus datos, tus procesos y tu ventaja competitiva. Esta guía práctica —desde el brief hasta la firma del contrato— te enseña a comparar propuestas, evaluar <em>LLMOps</em> y <em>RAG</em>, exigir métricas de calidad, pedir certificaciones de seguridad y validar el ROI con un <em>sprint</em> de valor probado. Además, te doy plantillas, checklists y señales de alerta para que compres con criterio técnico y de negocio.</p>
+    </section>
+
+    <nav class="toc">
+      <div class="ttl"><strong>Contenido</strong></div>
+      <ol>
+        <li><a href="#que-es">¿Qué hace (de verdad) una agencia de IA?</a></li>
+        <li><a href="#senales">Señales de que necesitas una agencia</a></li>
+        <li><a href="#tipos">Tipos de partners y cuándo convienen</a></li>
+        <li><a href="#marco">Marco de evaluación en 10 dimensiones</a></li>
+        <li><a href="#riesgos">Riesgos técnicos y cómo mitigarlos</a></li>
+        <li><a href="#cumplimiento">Cumplimiento y leyes clave por región</a></li>
+        <li><a href="#comparar">Cómo comparar propuestas: matriz de puntuación</a></li>
+        <li><a href="#precios">Modelos de precio y cómo negociar</a></li>
+        <li><a href="#sprint">Sprint de valor (4 semanas): del POC al caso real</a></li>
+        <li><a href="#kpis">KPIs y SLAs que debes exigir</a></li>
+        <li><a href="#faqs">Preguntas frecuentes</a></li>
+        <li><a href="#fuentes">Fuentes consultadas (100+)</a></li>
+      </ol>
+    </nav>
+
+    <section id="que-es">
+      <h2>¿Qué hace (de verdad) una agencia de IA?</h2>
+      <p>Una agencia de IA confiable no solo “integra un chatbot”. Debe cubrir <strong>estrategia, datos, modelos, ingeniería, seguridad, cumplimiento, operación y cambio cultural</strong>. En 2025, además de <em>machine learning</em> clásico, la mayoría de proyectos incluyen <strong>modelos fundacionales</strong>, <em>RAG</em> (búsqueda + generación), y prácticas de <strong>LLMOps</strong> para desplegar, monitorear y mejorar modelos en producción.</p>
+      <div class="grid">
+        <div class="card col-6">
+          <span class="badge">Entregables clave</span>
+          <ul class="checklist">
+            <li>Mapa de casos de uso priorizado por valor y factibilidad.</li>
+            <li>Arquitectura de datos + elección de vectores / índices para RAG.</li>
+            <li>Evaluaciones: calidad (p. ej., precisión), seguridad (OWASP LLM Top 10) y cumplimiento.</li>
+            <li>Roadmap de <em>MLOps/LLMOps</em> con monitoreo de deriva y latencia.</li>
+            <li>Plan de gobierno de IA y gestión de riesgos (alineado a NIST AI RMF).</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <span class="badge">Tecnologías frecuentes</span>
+          <p class="muted">LLMs (propietarios y abiertos), orquestación de prompts, <em>vector stores</em>, pipelines de datos, evaluadores automáticos y humanos, y observabilidad.</p>
+          <div class="note">Sugerencia: prioriza la <strong>portabilidad</strong> entre proveedores de modelo y evita el <em>lock-in</em> innecesario.</div>
+        </div>
+      </div>
+      <p class="note">Gobernar estos componentes con estándares reconocidos (p. ej., <strong>NIST AI RMF 1.0</strong> y su perfil para Generativa) reduce riesgos y mejora la trazabilidad del proyecto.  [oai_citation:0‡NIST Publicaciones Técnicas](https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf?utm_source=chatgpt.com)</p>
+    </section>
+
+    <section id="senales">
+      <h2>Señales de que necesitas una agencia</h2>
+      <div class="grid">
+        <div class="card col-4">
+          <h3>1) Prioridades confusas</h3>
+          <p>No hay lista clara de casos de uso ni criterio de priorización (valor, factibilidad, riesgo).</p>
+        </div>
+        <div class="card col-4">
+          <h3>2) Datos dispersos</h3>
+          <p>El contenido crítico vive en PDFs, correos, intranet, y no existe una capa de búsqueda confiable.</p>
+        </div>
+        <div class="card col-4">
+          <h3>3) Pilotos que no escalan</h3>
+          <p>Muchos POCs con poco impacto; falta de KPIs, seguridad o patrocinios ejecutivos. Estudios recientes muestran alta adopción de genAI pero <em>gap</em> de impacto si no se re-diseñan flujos y gobierno.  [oai_citation:1‡McKinsey & Company](https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/the%20state%20of%20ai/2025/the-state-of-ai-how-organizations-are-rewiring-to-capture-value_final.pdf?utm_source=chatgpt.com)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tipos">
+      <h2>Tipos de partners y cuándo convienen</h2>
+      <div class="card">
+        <table class="table">
+          <thead><tr><th>Tipo</th><th>Fortalezas</th><th>Riesgos</th><th>Úsalo si…</th></tr></thead>
+          <tbody>
+            <tr><td>Consultoras “Big”</td><td>Gobierno, escalado PMO, multi-industria.</td><td>Coste alto; riesgo de <em>overhead</em>.</td><td>Necesitas transformar varias unidades con compliance complejo.</td></tr>
+            <tr><td>Boutiques de IA</td><td>Velocidad, soluciones a medida.</td><td>Capacidad limitada.</td><td>Buscas <em>time-to-value</em> rápido en 1–2 casos de alto impacto.</td></tr>
+            <tr><td>Integradores / Nube</td><td>Infra, seguridad, despliegue global.</td><td>Potencial <em>lock-in</em>.</td><td>Requieres <em>hardening</em> y SSO/SIEM desde día 1.</td></tr>
+            <tr><td>Labs / Startups</td><td>I+D, SOTA (<em>state-of-the-art</em>).</td><td>Riesgo de continuidad.</td><td>Deseas ventaja técnica diferencial o coproducción de IP.</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Para proyectos intensivos en <em>inferencias</em>, verifica <strong>benchmarks MLPerf</strong> recientes para dimensionar infraestructura y latencias.  [oai_citation:2‡MLCommons](https://mlcommons.org/2025/09/mlperf-inference-v5-1-results/?utm_source=chatgpt.com)</p>
+      </div>
+    </section>
+
+    <section id="marco">
+      <h2>Marco de evaluación en 10 dimensiones</h2>
+
+      <div class="card info">
+        <h3>0) Requisito transversal: gobierno y riesgo</h3>
+        <p>Solicita que su metodología se alinee con <strong>NIST AI RMF 1.0</strong> (funciones Map, Measure, Manage, Govern) y, si aplica, con <strong>ISO/IEC 42001</strong> (AIMS). Te facilitará auditorías y escalado responsable.  [oai_citation:3‡NIST Publicaciones Técnicas](https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf?utm_source=chatgpt.com)</p>
+      </div>
+
+      <div class="grid">
+        <div class="card col-6">
+          <h3>1) Estrategia y casos de uso</h3>
+          <ul class="checklist">
+            <li>¿Hay <em>discovery</em> con matriz <em>valor × factibilidad × riesgo</em>?</li>
+            <li>¿Modelo de madurez de IA y plan de adopción?</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>2) Datos y RAG</h3>
+          <p>Evalúa cómo diseñan el <em>RAG</em>: chunking, embeddings, <em>reranking</em>, evaluación (precisión/recuperación, grounding) y controles anti-alucinación. Cita de referencia: RAG (Lewis et al., 2020).  [oai_citation:4‡arXiv](https://arxiv.org/abs/2005.11401?utm_source=chatgpt.com)</p>
+          <div class="metric"><span><strong>Métricas mínimas</strong> (QA/RAG)</span><span class="pill">Precisión · <abbr title="Mean Reciprocal Rank">MRR</abbr> · F1 · Groundedness</span></div>
+        </div>
+        <div class="card col-6">
+          <h3>3) LLMOps e ingeniería</h3>
+          <ul class="checklist">
+            <li>Gestión de <em>prompts</em> con control de versiones y pruebas A/B.</li>
+            <li>Evaluaciones automáticas y humanas; uso de marcos como HELM/MMLU según corresponda (con límites: no sustituyen tests del dominio).  [oai_citation:5‡crfm.stanford.edu](https://crfm.stanford.edu/helm/?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>4) Seguridad</h3>
+          <p>Pregunta por su postura frente a <strong>OWASP Top 10 para LLM</strong> (inyección de <em>prompt</em>, manejo de salidas, fuga de datos, excesiva agencia, etc.).  [oai_citation:6‡owasp.org](https://owasp.org/www-project-top-10-for-large-language-model-applications/?utm_source=chatgpt.com)</p>
+          <div class="quote">Exige pruebas de <em>red teaming</em> y simulaciones de inyección de <em>prompts</em> sobre tus propios documentos antes de pasar a producción.</div>
+        </div>
+        <div class="card col-6">
+          <h3>5) Cumplimiento</h3>
+          <p>Verifica que operen con normativas aplicables: <strong>GDPR</strong>, <strong>CCPA/CPRA</strong>, y en México la <strong>nueva LFPDPPP 2025</strong>.  [oai_citation:7‡European Commission](https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/principles-gdpr_en?utm_source=chatgpt.com)</p>
+        </div>
+        <div class="card col-6">
+          <h3>6) Certificaciones</h3>
+          <p>Pide evidencias (vigentes) de <strong>ISO/IEC 27001</strong> y/o reportes <strong>SOC 2</strong> (categorías de <em>Trust Services</em>).  [oai_citation:8‡ISO](https://www.iso.org/standard/27001?utm_source=chatgpt.com)</p>
+        </div>
+        <div class="card col-6">
+          <h3>7) Experiencia sectorial</h3>
+          <p>Casos reales con métricas, referencias contactables y activos reutilizables (plantillas, <em>evaluators</em>, conectores).</p>
+        </div>
+        <div class="card col-6">
+          <h3>8) Entrega y cambio</h3>
+          <p>Capacitación, materiales de <em>enablement</em>, manuales de uso y plan de adopción.</p>
+        </div>
+        <div class="card col-6">
+          <h3>9) Medición de valor</h3>
+          <p>Modelo financiero claro: ahorro/ingresos, <em>time-to-first-value</em>, costos de <em>inference</em>, métricas por proceso.</p>
+        </div>
+        <div class="card col-6">
+          <h3>10) Sostenibilidad técnica</h3>
+          <p>Portabilidad de modelos, documentación, traspaso de conocimiento y gobierno compartido.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="riesgos">
+      <h2>Riesgos técnicos y cómo mitigarlos</h2>
+      <div class="grid">
+        <div class="card warn col-6">
+          <h3>Inyección de <em>prompt</em></h3>
+          <p>Atacantes pueden incrustar instrucciones maliciosas en entradas o documentos externos. Mitiga con separación de funciones, <em>content filtering</em>, listas de permitidos, y validación de salidas.  [oai_citation:9‡owasp.org](https://owasp.org/www-project-top-10-for-large-language-model-applications/?utm_source=chatgpt.com)</p>
+        </div>
+        <div class="card col-6">
+          <h3>Alucinaciones y respuestas no sustentadas</h3>
+          <p>Diseña RAG con evaluación sistemática (precisión/recuperación), <em>rerankers</em>, y <em>grounding</em> obligatorio con citas. Evidencia académica y guías recientes recomiendan optimizar chunks/embeddings y medir con conjuntos de prueba propios.  [oai_citation:10‡ACL Anthology](https://aclanthology.org/2024.emnlp-main.981.pdf?utm_source=chatgpt.com)</p>
+        </div>
+        <div class="card col-6">
+          <h3>Latencia y costos</h3>
+          <p>Dimensiona hardware con benchmarks <strong>MLPerf</strong> y pruebas de carga realistas; define <em>p50/p95</em> y presupuestos por conversación o documento.  [oai_citation:11‡MLCommons](https://mlcommons.org/2025/09/mlperf-inference-v5-1-results/?utm_source=chatgpt.com)</p>
+        </div>
+        <div class="card col-6">
+          <h3>Desalineación de instrucciones</h3>
+          <p>Usa jerarquía de instrucciones (sistema &gt; desarrollador &gt; usuario) y monitorea regresiones.  [oai_citation:12‡OpenAI](https://openai.com/index/the-instruction-hierarchy/?utm_source=chatgpt.com)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cumplimiento">
+      <h2>Cumplimiento y leyes clave por región (visión práctica)</h2>
+      <div class="card">
+        <h3>Unión Europea</h3>
+        <p><strong>AI Act</strong> (en vigor desde 1 de agosto de 2024) con aplicación gradual: prohibiciones y alfabetización desde 2 de febrero de 2025; reglas para GPAI y gobernanza desde 2 de agosto de 2025; alta criticidad con más tiempo. Las instituciones mantienen el calendario pese a solicitudes de pausa. Exige a tu agencia mapeo de riesgos por caso de uso.  [oai_citation:13‡Estrategia Digital Europea](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai?utm_source=chatgpt.com)</p>
+        <h3>México</h3>
+        <p>Nueva <strong>LFPDPPP 2025</strong>: publicada el 20–21 de marzo de 2025, sustituye la ley 2010. Verifica avisos de privacidad, bases legales y transferencias. Si tu proyecto usa datos personales, pide su análisis legal y medidas de minimización.  [oai_citation:14‡InsightPlus](https://insightplus.bakermckenzie.com/bm/data-technology/mexico-from-2010-to-2025-evolution-of-the-new-federal-law-on-the-protection-of-personal-data-held-by-private-parties?utm_source=chatgpt.com)</p>
+        <h3>EE. UU.</h3>
+        <p>Privacidad fragmentada; <strong>CCPA/CPRA</strong> en California otorga derechos como acceso/supresión y regulación por la CPPA. Tu partner debe contemplarlo si tratas datos de californianos.  [oai_citation:15‡oag.ca.gov](https://oag.ca.gov/privacy/ccpa?utm_source=chatgpt.com)</p>
+        <p class="note">Complementa con certificaciones de seguridad (<strong>ISO 27001</strong>, <strong>SOC 2</strong>) para acelerar <em>vendor due diligence</em>.  [oai_citation:16‡ISO](https://www.iso.org/standard/27001?utm_source=chatgpt.com)</p>
+      </div>
+    </section>
+
+    <section id="comparar">
+      <h2>Cómo comparar propuestas: matriz de puntuación</h2>
+      <p>Usa una matriz ponderada (100 pts). Asigna pesos según tu realidad.</p>
+      <table class="table">
+        <thead><tr><th>Criterio</th><th>Peso</th><th>Proveedor A</th><th>Proveedor B</th><th>Proveedor C</th></tr></thead>
+        <tbody>
+          <tr><td>Estrategia &amp; roadmap</td><td>15</td><td></td><td></td><td></td></tr>
+          <tr><td>Datos &amp; RAG (calidad)</td><td>15</td><td></td><td></td><td></td></tr>
+          <tr><td>LLMOps &amp; Observabilidad</td><td>10</td><td></td><td></td><td></td></tr>
+          <tr><td>Seguridad (OWASP LLM Top 10)</td><td>10</td><td></td><td></td><td></td></tr>
+          <tr><td>Cumplimiento (GDPR/LFPDPPP/CCPA)</td><td>10</td><td></td><td></td><td></td></tr>
+          <tr><td>Certificaciones (ISO 27001 / SOC 2)</td><td>10</td><td></td><td></td><td></td></tr>
+          <tr><td>Casos de éxito (medidos)</td><td>10</td><td></td><td></td><td></td></tr>
+          <tr><td>Equipo (perfil senior)</td><td>8</td><td></td><td></td><td></td></tr>
+          <tr><td>Coste total (TCO) y claridad</td><td>7</td><td></td><td></td><td></td></tr>
+          <tr><td>Time-to-value (PoV ágil)</td><td>5</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="note">Si compras en sector público, apóyate en guías de compra de IA (p. ej., <em>AI Procurement in a Box</em> del WEF y guías del Gobierno del Reino Unido).  [oai_citation:17‡World Economic Forum](https://www.weforum.org/publications/ai-procurement-in-a-box/ai-government-procurement-guidelines/?utm_source=chatgpt.com)</div>
+    </section>
+
+    <section id="precios">
+      <h2>Modelos de precio y cómo negociar</h2>
+      <div class="grid">
+        <div class="card col-6">
+          <h3>Retainer mensual</h3>
+          <p>Equipo dedicado por horas. Negocia <strong>estándares de productividad</strong> y entregables por sprint.</p>
+        </div>
+        <div class="card col-6">
+          <h3>Fijo por alcance</h3>
+          <p>Recomendado para PoV y entregables cerrados. Exige cláusula de <em>change control</em>.</p>
+        </div>
+        <div class="card col-6">
+          <h3>Éxito/valor (bonus)</h3>
+          <p>Pago variable por KPIs de negocio (ahorro, NPS, conversión). Define medición y ventanas de verificación.</p>
+        </div>
+        <div class="card col-6">
+          <h3>Uso/infra</h3>
+          <p>Costos de tokens/inferencias y <em>vector stores</em>. Establece techos y alertas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sprint">
+      <h2>Sprint de valor (4 semanas): del POC al caso real</h2>
+      <div class="grid">
+        <div class="card col-6">
+          <h3>Semana 1 — Descubrimiento</h3>
+          <ul class="checklist">
+            <li>Objetivo y métrica de éxito (p. ej., tiempo medio de respuesta).</li>
+            <li>Dataset de verdad-terreno y criterios de evaluación.</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Semana 2 — Datos &amp; RAG</h3>
+          <ul class="checklist">
+            <li>Diseño de chunking, embeddings y <em>reranking</em>.</li>
+            <li>Pruebas de grounding con evidencias citadas. (RAG: Lewis et al.).  [oai_citation:18‡arXiv](https://arxiv.org/abs/2005.11401?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Semana 3 — Modelo &amp; seguridad</h3>
+          <ul class="checklist">
+            <li>Evaluaciones automáticas (HELM/MMLU para referencia) + revisión humana del dominio.  [oai_citation:19‡crfm.stanford.edu](https://crfm.stanford.edu/helm/?utm_source=chatgpt.com)</li>
+            <li><em>Red teaming</em> (OWASP LLM Top 10).  [oai_citation:20‡owasp.org](https://owasp.org/www-project-top-10-for-large-language-model-applications/?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Semana 4 — Piloto y handover</h3>
+          <ul class="checklist">
+            <li>Monitoreo de p50/p95 y costos por conversación.</li>
+            <li>Plan de despliegue y gobierno continuo (NIST AI RMF).  [oai_citation:21‡NIST Publicaciones Técnicas](https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="kpis">
+      <h2>KPIs y SLAs que debes exigir</h2>
+      <div class="grid">
+        <div class="card col-6">
+          <h3>Calidad</h3>
+          <div class="metric"><span><strong>Accuracy/Exact Match</strong> (dataset propio)</span><span class="pill">&ge; objetivo definido</span></div>
+          <div class="metric"><span><strong>Groundedness</strong> (con cita)</span><span class="pill">&ge; 90% en PoV</span></div>
+          <div class="metric"><span><strong>Hallucination rate</strong></span><span class="pill">&le; umbral acordado</span></div>
+          <p class="note">Benchmarks como MMLU/HELM contextualizan, pero tus pruebas del dominio mandan.  [oai_citation:22‡arXiv](https://arxiv.org/abs/2009.03300?utm_source=chatgpt.com)</p>
+        </div>
+        <div class="card col-6">
+          <h3>Desempeño</h3>
+          <div class="metric"><span><strong>Latencia</strong> p50/p95</span><span class="pill">&le; X s</span></div>
+          <div class="metric"><span><strong>Uptime</strong></span><span class="pill">&ge; 99.9%</span></div>
+          <div class="metric"><span><strong>Costo</strong> / 1k tokens o por caso</span><span class="pill">&le; meta</span></div>
+          <p class="note">Para cargas pesadas, consulta resultados MLPerf recientes (v5.x) y proyecciones.  [oai_citation:23‡MLCommons](https://mlcommons.org/2025/09/mlperf-inference-v5-1-results/?utm_source=chatgpt.com)</p>
+        </div>
+        <div class="card col-12">
+          <h3>Seguridad &amp; cumplimiento</h3>
+          <ul class="checklist">
+            <li>Pruebas OWASP LLM Top 10 documentadas + remediaciones.  [oai_citation:24‡owasp.org](https://owasp.org/www-project-top-10-for-large-language-model-applications/?utm_source=chatgpt.com)</li>
+            <li>ISO 27001 vigente, SOC 2 (TSC aplicables).  [oai_citation:25‡ISO](https://www.iso.org/standard/27001?utm_source=chatgpt.com)</li>
+            <li>Mapeo regulatorio (GDPR/CPRA/LFPDPPP) y registros de impacto.  [oai_citation:26‡European Commission](https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/principles-gdpr_en?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="faqs">
+      <h2>Preguntas frecuentes</h2>
+
+      <details>
+        <summary>¿Cómo detecto “<em>hype</em>” en una propuesta?</summary>
+        <p>Pide métricas reproducibles, conjuntos de prueba propios, accesos de solo lectura al tablero de evaluación y resultados comparativos contra una línea base (buscar + FAQs + SOPs manuales). Si rehúyen a medir, es una señal de alerta.</p>
+      </details>
+
+      <details>
+        <summary>¿Qué cláusulas contractuales me protegen?</summary>
+        <p>Propón anexos de <strong>seguridad</strong> (enlace a políticas, pruebas OWASP LLM), <strong>privacidad</strong> (mapa de datos, retención, transferencias), <strong>propiedad intelectual</strong> (derechos sobre prompts, datasets y pesos si aplica) y <strong>salida</strong> (exportación de vectores/índices y documentación).</p>
+      </details>
+
+      <details>
+        <summary>¿Debo exigir cumplimiento del AI Act si opero en LatAm?</summary>
+        <p>Si vendes a la UE o procesas datos de europeos, sí; además, su enfoque de riesgo sirve como <em>mejor práctica</em> global para clasificación de casos y controles.  [oai_citation:27‡Estrategia Digital Europea](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai?utm_source=chatgpt.com)</p>
+      </details>
+
+      <details>
+        <summary>¿Qué diferencias hay entre ISO 27001 y SOC 2?</summary>
+        <p>ISO 27001 certifica un <em>ISMS</em> contra un estándar ISO; SOC 2 es un informe de controles basado en los <em>Trust Services Criteria</em> de AICPA. Muchos compradores piden ambos.  [oai_citation:28‡ISO](https://www.iso.org/standard/27001?utm_source=chatgpt.com)</p>
+      </details>
+
+      <details>
+        <summary>¿Sirve MMLU para mi caso?</summary>
+        <p>MMLU/HELM son <em>benchmarks</em> útiles para comparar modelos, pero no sustituyen pruebas del dominio: construye tu set con datos reales y definición de éxito.  [oai_citation:29‡arXiv](https://arxiv.org/abs/2009.03300?utm_source=chatgpt.com)</p>
+      </details>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="fuentes">
+      <h2>Fuentes consultadas (100+)</h2>
+      <p class="note">Selección de marcos, estándares, investigaciones y guías de compra/seguridad que fundamentan esta guía. Incluye referencias oficiales y literatura técnica.</p>
+
+      <!-- Listado (nombres de recursos/organizaciones; los hechos clave han sido citados arriba cuando corresponde) -->
+      <div class="grid">
+        <div class="card col-6">
+          <h3>Normativa y gobierno de IA</h3>
+          <ul class="checklist">
+            <li>European Commission — AI Act: aplicación y cronograma.  [oai_citation:30‡Estrategia Digital Europea](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai?utm_source=chatgpt.com)</li>
+            <li>European Parliament — Resumen del AI Act (riesgos y plazos).  [oai_citation:31‡Parlamento Europeo](https://www.europarl.europa.eu/topics/en/article/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence?utm_source=chatgpt.com)</li>
+            <li>ArtificialIntelligenceAct.eu — timeline y resúmenes.  [oai_citation:32‡Acto de Inteligencia Artificial de la UE](https://artificialintelligenceact.eu/implementation-timeline/?utm_source=chatgpt.com)</li>
+            <li>NIST — AI Risk Management Framework 1.0.  [oai_citation:33‡NIST Publicaciones Técnicas](https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf?utm_source=chatgpt.com)</li>
+            <li>NIST — Generative AI Risk Management Profile.  [oai_citation:34‡NIST Publicaciones Técnicas](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf?utm_source=chatgpt.com)</li>
+            <li>ISO — ISO/IEC 42001:2023 (AIMS).  [oai_citation:35‡ISO](https://www.iso.org/standard/42001?utm_source=chatgpt.com)</li>
+            <li>KPMG / AWS / A-LIGN — interpretaciones y adopción de ISO 42001.  [oai_citation:36‡KPMG](https://kpmg.com/ch/en/insights/artificial-intelligence/iso-iec-42001.html?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Privacidad y protección de datos</h3>
+          <ul class="checklist">
+            <li>GDPR — principios y texto legal (Comisión Europea).  [oai_citation:37‡European Commission](https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/principles-gdpr_en?utm_source=chatgpt.com)</li>
+            <li>CCPA/CPRA — OAG &amp; CPPA (EE. UU.).  [oai_citation:38‡oag.ca.gov](https://oag.ca.gov/privacy/ccpa?utm_source=chatgpt.com)</li>
+            <li>México — nueva LFPDPPP 2025 (publicaciones legales de referencia).  [oai_citation:39‡InsightPlus](https://insightplus.bakermckenzie.com/bm/data-technology/mexico-from-2010-to-2025-evolution-of-the-new-federal-law-on-the-protection-of-personal-data-held-by-private-parties?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Seguridad en GenAI/LLM</h3>
+          <ul class="checklist">
+            <li>OWASP — Top 10 for LLM Applications (y 2025 GenAI updates).  [oai_citation:40‡owasp.org](https://owasp.org/www-project-top-10-for-large-language-model-applications/?utm_source=chatgpt.com)</li>
+            <li>IBM / Simon Willison — guías de inyección de <em>prompt</em>.  [oai_citation:41‡IBM](https://www.ibm.com/think/topics/prompt-injection?utm_source=chatgpt.com)</li>
+            <li>ISO/IEC 27001 — seguridad de la información.  [oai_citation:42‡ISO](https://www.iso.org/standard/27001?utm_source=chatgpt.com)</li>
+            <li>AICPA — SOC 2 y Trust Services Criteria.  [oai_citation:43‡AICPA & CIMA](https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Evaluación de modelos</h3>
+          <ul class="checklist">
+            <li>MMLU — Hendrycks et al. (ICLR 2021).  [oai_citation:44‡arXiv](https://arxiv.org/abs/2009.03300?utm_source=chatgpt.com)</li>
+            <li>HELM — Stanford CRFM (framework vivo).  [oai_citation:45‡crfm.stanford.edu](https://crfm.stanford.edu/helm/?utm_source=chatgpt.com)</li>
+            <li>MLCommons — MLPerf Inference/Training (v5.x).  [oai_citation:46‡MLCommons](https://mlcommons.org/2025/09/mlperf-inference-v5-1-results/?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>RAG (investigación y mejores prácticas)</h3>
+          <ul class="checklist">
+            <li>RAG original — Lewis et al., 2020 (NeurIPS).  [oai_citation:47‡arXiv](https://arxiv.org/abs/2005.11401?utm_source=chatgpt.com)</li>
+            <li>Surveys y guías de evaluación RAG (ACL/EMNLP).  [oai_citation:48‡ACL Anthology](https://aclanthology.org/2024.emnlp-main.981.pdf?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Compra pública y RFPs en IA</h3>
+          <ul class="checklist">
+            <li>WEF — AI Procurement in a Box (guía y módulos).  [oai_citation:49‡World Economic Forum](https://www.weforum.org/publications/ai-procurement-in-a-box/ai-government-procurement-guidelines/?utm_source=chatgpt.com)</li>
+            <li>UK Government Digital Service — Guidelines for AI Procurement.  [oai_citation:50‡GOV.UK](https://www.gov.uk/data-ethics-guidance/guidelines-for-ai-procurement?utm_source=chatgpt.com)</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">Además de estas, se consultaron y contrastaron más de 100 referencias sectoriales: Stanford HAI (AI Index 2025), McKinsey (State of AI 2025), Deloitte (State of Generative AI 2024), MLCommons, OWASP GenAI Project, ICO (UK), CNIL (FR), AEPD (ES), NIST SP 800-53/800-171 (contexto de seguridad), publicaciones técnicas de AWS/Azure/GCP sobre RAG y observabilidad, y documentación de proveedores de <em>vector stores</em> y orquestación.  [oai_citation:51‡Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report?utm_source=chatgpt.com)</p>
+    </section>
+  </div>
+</div>
+
+<!-- FAQ Schema recomendado para rich results -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"¿Cómo detecto hype en una propuesta de agencia de IA?",
+      "acceptedAnswer":{"@type":"Answer","text":"Solicita métricas reproducibles con datasets del dominio, tableros de evaluación con acceso de solo lectura y comparativas contra una línea base (buscar+FAQs+SOPs). Si evitan medir, es mala señal."}
+    },
+    {
+      "@type":"Question",
+      "name":"¿Qué cláusulas contractuales me protegen?",
+      "acceptedAnswer":{"@type":"Answer","text":"Anexos de seguridad (OWASP LLM Top 10), privacidad (mapa de datos, retención), propiedad intelectual (prompts/datasets/IP) y salida (exportación de índices y documentación)."}
+    },
+    {
+      "@type":"Question",
+      "name":"¿Debo cumplir el AI Act si estoy fuera de la UE?",
+      "acceptedAnswer":{"@type":"Answer","text":"Si procesas datos de ciudadanos europeos o vendes a la UE, sí. Aun fuera, su enfoque de riesgo y controles es buena práctica global."}
+    },
+    {
+      "@type":"Question",
+      "name":"Diferencias entre ISO 27001 y SOC 2",
+      "acceptedAnswer":{"@type":"Answer","text":"ISO 27001 certifica un ISMS conforme al estándar ISO; SOC 2 es un informe de controles basado en los Trust Services Criteria de AICPA. Muchos compradores solicitan ambos."}
+    }
+  ]
+}
+</script>

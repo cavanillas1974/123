@@ -1,21 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
+import FuturisticServiceBuilder from '../components/FuturisticServiceBuilder';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+const pillars = [
+  'Arquitectura visual cyber-futurista para iamanos.com',
+  'Servicios modulares que se combinan por drag & drop',
+  'Cotización dinámica en tiempo real con descuentos por bundle'
+];
 ---
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-8" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
+<Layout title="IAMANOS · Futuristic Service Lab">
+  <section class="mb-10 rounded-2xl border border-cyan-300/30 bg-gradient-to-br from-slate-900 via-violet-950/60 to-slate-900 p-7 shadow-[0_0_60px_rgba(56,189,248,.18)]">
+    <p class="mb-2 text-xs uppercase tracking-[0.25em] text-cyan-200/80">iamanos.com · experiencia suprema</p>
+    <h1 class="mb-4 text-balance text-4xl leading-tight">Tu site futurista para vender servicios configurables</h1>
+    <p class="mb-5 max-w-3xl text-lg text-white/80">
+      Creamos una experiencia inmersiva: tus clientes arrastran servicios, arman su paquete ideal y obtienen
+      cotización instantánea. Menos fricción, más cierres.
     </p>
+
+    <ul class="grid gap-2 sm:grid-cols-3">
+      {
+        pillars.map((item) => (
+          <li class="rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm text-white/85">{item}</li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <FuturisticServiceBuilder client:load />
 </Layout>

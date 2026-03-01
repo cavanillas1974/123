@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Gmail → WhatsApp Bridge">
+  <section class="space-y-6 rounded-2xl border border-emerald-300/30 bg-gradient-to-br from-slate-900 via-emerald-950/50 to-slate-900 p-7 shadow-[0_0_60px_rgba(16,185,129,.2)]">
+    <p class="text-xs uppercase tracking-[0.25em] text-emerald-200/80">automatización</p>
+    <h1 class="text-3xl font-semibold">App Gmail → WhatsApp</h1>
+    <p class="max-w-3xl text-white/80">
+      Esta app revisa correos no leídos de Gmail y te los envía como mensaje de WhatsApp. Está pensada para correr en
+      Netlify y activarse con un cron job o manualmente por API.
+    </p>
+
+    <div class="grid gap-4 md:grid-cols-2">
+      <article class="rounded-xl border border-white/15 bg-white/5 p-4">
+        <h2 class="mb-2 text-lg font-medium">1) Variables de entorno</h2>
+        <ul class="list-disc space-y-1 pl-5 text-sm text-white/80">
+          <li><code>GMAIL_CLIENT_ID</code></li>
+          <li><code>GMAIL_CLIENT_SECRET</code></li>
+          <li><code>GMAIL_REFRESH_TOKEN</code></li>
+          <li><code>GMAIL_USER</code> (tu email, o <code>me</code>)</li>
+          <li><code>WHATSAPP_ACCESS_TOKEN</code></li>
+          <li><code>WHATSAPP_PHONE_NUMBER_ID</code></li>
+          <li><code>WHATSAPP_TO</code> (número en formato internacional)</li>
+          <li><code>CRON_SECRET</code> (opcional, recomendado)</li>
+        </ul>
+      </article>
+
+      <article class="rounded-xl border border-white/15 bg-white/5 p-4">
+        <h2 class="mb-2 text-lg font-medium">2) Endpoint</h2>
+        <p class="text-sm text-white/80">Ejecuta el sincronizador en:</p>
+        <code class="mt-2 block rounded bg-black/40 p-2 text-sm">/api/gmail-whatsapp-sync</code>
+        <p class="mt-3 text-sm text-white/80">
+          Puedes llamarlo con GET o POST. Si defines <code>CRON_SECRET</code>, envía header
+          <code>Authorization: Bearer TU_SECRET</code>.
+        </p>
+      </article>
+    </div>
+
+    <article class="rounded-xl border border-cyan-300/20 bg-cyan-400/5 p-4 text-sm text-cyan-100/90">
+      <h2 class="mb-2 text-base font-medium text-cyan-100">Notas importantes</h2>
+      <ul class="list-disc space-y-1 pl-5">
+        <li>La primera versión usa texto libre de WhatsApp Cloud API (no plantillas).</li>
+        <li>Para evitar duplicados, el correo se marca como leído al enviarse (<code>GMAIL_MARK_AS_READ=true</code>).</li>
+        <li>Configura <code>GMAIL_QUERY</code> para filtrar (ej: <code>is:unread from:cliente@dominio.com</code>).</li>
+      </ul>
+    </article>
+  </section>
+</Layout>
